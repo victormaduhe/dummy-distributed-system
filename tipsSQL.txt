@@ -1,0 +1,18 @@
+//create volume, it makes a security copy even if the docker container is deleted
+docker volume create postgres_data
+
+//init the BD, make shure it has your credentials
+// the -v points to your local volume and save there the data
+
+docker run --name postgres-local \
+  -e POSTGRES_DB=orders \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=password \
+  -v postgres_data:/var/lib/docker/volumes/postgres_data\
+  -p 5432:5432 \
+  -d postgres:15
+
+//if there is the first time you "create" the container you can set up the database with a couple of dummy rows with the QuickStarSLQ.txt file
+
+// enter in the terminal of local database "orders"
+docker exec -it postgres-local psql -U postgres -d orders

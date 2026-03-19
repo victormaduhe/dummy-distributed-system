@@ -1,9 +1,8 @@
 package com.maduhe.orderservice;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import org.junit.jupiter.api.Test;
+
 class OrderserviceApplicationTests {
 
 	@Test

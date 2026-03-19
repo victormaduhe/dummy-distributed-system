@@ -1,0 +1,27 @@
+// execute the command to let you push some sql commands directly in the database
+docker exec -it postgres-local psql -U postgres -d orders
+
+
+// you can create a table if not exist (hibernate maps the database by default but you can create the table to let you push some data in it before run the SpringBoot project)
+
+CREATE TABLE IF NOT EXISTS orders (
+    id UUID PRIMARY KEY,
+    amount DOUBLE PRECISION,
+    status VARCHAR(50)
+);
+
+
+//SOME DATA TO FILL THE TABLE
+
+INSERT INTO orders (id, amount, status) VALUES
+(gen_random_uuid(), 15, 'CREATED'),
+(gen_random_uuid(), 200, 'PAID'),
+(gen_random_uuid(), 250, 'PAID'),
+(gen_random_uuid(), 300, 'PAID'),
+(gen_random_uuid(), 3250, 'PAID'),
+(gen_random_uuid(), 65, 'PAID'),
+(gen_random_uuid(), 500, 'FAILED');
+
+
+//you can verify the rows by the command
+SELECT * FROM orders;

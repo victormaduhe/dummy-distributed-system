@@ -3,6 +3,4 @@ spring:
     name: orderservice
 
   jpa:
-    hibernate:
-      ddl-auto: update
     show-sql: true

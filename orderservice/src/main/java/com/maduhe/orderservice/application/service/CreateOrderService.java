@@ -4,11 +4,13 @@ import com.maduhe.orderservice.domain.model.Order;
 import com.maduhe.orderservice.domain.model.OrderStatus;
 import com.maduhe.orderservice.domain.repository.OrderRepository;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CreateOrderService {
+
     private final OrderRepository orderRepository;
 
     public Order create(Double amount) {
